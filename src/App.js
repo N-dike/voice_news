@@ -9,8 +9,9 @@ const alanKey='8a92c4e2fc12c818817c909248fd15d42e956eca572e1d8b807a3e2338fdd0dc/
 
 const App=() => {
   const classes = useStyles()
-  const [newsArticles, setNewsArticles] = useState([])
   const [activeArticle, setActiveArticle] = useState(-1);
+  const [newsArticles, setNewsArticles] = useState([])
+
 
   useEffect(()=>{
     alanBtn({
@@ -44,6 +45,14 @@ const App=() => {
     
      </div>
      <NewsCards articles={newsArticles} activeArticle={activeArticle}/>
+     {!newsArticles.length ? (
+        <div className={classes.footer}>
+          <Typography variant="body1" component="h2">
+            Created by
+            <a className={classes.link} href='https://www.linkedin.com/in/nnadike-nnadike-800228225/'> Nnadike</a>
+          </Typography>
+        </div>
+      ) : null}
     </div>
   )
 }

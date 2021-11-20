@@ -9,7 +9,6 @@ export default makeStyles ((theme) => ({
         height: '120px',
         justifyContent: 'center',
         left: 0,
-        position: 'fixed',
         textAlign: 'center',
         [theme.breakpoints.down('sm')]:{
         display: 'none',
