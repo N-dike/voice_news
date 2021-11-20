@@ -10,7 +10,7 @@ const NewsCard = ({ article: { description, publishedAt, source, title, url, url
     useEffect(() =>{
         if( activeArticle === i ) { 
             let elmnt = document.getElementById(`card ${i}`);
-              elmnt.scrollIntoView(); window.scroll(0, elmnt.offsetTop - 50) } }, [i, activeArticle]);
+              elmnt.scrollIntoView(); window.scroll(0, elmnt.offsetTop - 15) } }, [i, activeArticle]);
     
 
   

@@ -3,6 +3,7 @@ import NewsCards from './components/NewsCards/NewsCards'
 import React, {useState, useEffect} from 'react'
 import useStyles from './styles'
 import { Typography } from '@material-ui/core'
+import wordsToNumbers from 'words-to-numbers'
 
 const alanKey='8a92c4e2fc12c818817c909248fd15d42e956eca572e1d8b807a3e2338fdd0dc/stage'
 
@@ -14,19 +15,31 @@ const App=() => {
   useEffect(()=>{
     alanBtn({
       key: alanKey,
-      onCommand: ({ command, articles }) =>{
+      onCommand: ({ command, articles, number }) =>{
         if(command === 'newHeadlines'){
           setNewsArticles(articles)
         }else if(command === 'highlight'){
           setActiveArticle((prevActiveArticle) =>prevActiveArticle + 1)
+        }else if (command === 'open')   {
+          const parsedNumber = number.length > 2 ? wordsToNumbers(number, {fuzzy: true}): number
+          const article = articles[parsedNumber - 1]
+          if (parsedNumber > articles.length){
+            alanBtn().playText('Please try again.')          }
+          else if(article){
+            console.log(article);
+            window.open(article.url, '_blank')
+            alanBtn().playText('Opening the article on a new tab')
+          } else {
+            alanBtn().playText('Please try that again.')
+          }
         }
-      } 
+      },
     })
   },[])
   return (
     <div className='App'>
       <div className={classes.logoContainer}>
-     <Typography variant='h2'>News App with  </Typography>
+     <Typography variant='h3'>News App with  </Typography>
      <img src='assets/alan-logo-icon-color.png' alt='logo here'/>
     
      </div>

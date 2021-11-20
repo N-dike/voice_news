@@ -55,11 +55,13 @@ export default makeStyles ((theme) => ({
         alignItems:'center',
         color: '#0D1940',
         display: 'flex',
+        fontSize: '5px',
         justifyContent:'center',
         flexDirection:'row',
         width: '100%',
         [theme.breakpoints.down('sm')]:{
-            height: '35vmin',
+            flexDirection:'column',
+           
         },
     },
 }))
