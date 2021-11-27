@@ -49,7 +49,7 @@ const App=() => {
         <div className={classes.footer}>
           <Typography variant="body1" component="h2">
             Created by
-            <a className={classes.link} href='https://www.linkedin.com/in/nnadike-nnadike-800228225/'> Nnadike</a>
+            <a className={classes.link} href='https://www.linkedin.com/in/nnadike-nnadike-800228225/' target='_blank'> Nnadike</a>
           </Typography>
         </div>
       ) : null}
