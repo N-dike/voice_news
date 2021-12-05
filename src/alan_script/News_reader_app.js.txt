@@ -1,3 +1,4 @@
+// Convert .txt to .js
 // Use this sample to create your own voice commands
 intent('What does this app do?', 'What can i do here', 'Hello',
   reply('This app keeps tab on the news, headlines and various articles.'));
